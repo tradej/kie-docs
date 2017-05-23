@@ -1,3 +1,6 @@
 
+:shared-dir: shared
+:imagesdir: topics/shared/images
+
 include::topics/main.adoc[]
 
