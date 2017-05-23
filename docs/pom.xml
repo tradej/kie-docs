@@ -56,10 +56,14 @@
             </dependency>
           </dependencies>
           <configuration>
-            <imagesDir>.</imagesDir>
+            <sourceDirectory>src/main/asciidoc/community</sourceDirectory>
             <resources>
               <resource>
                 <directory>src/main/asciidoc</directory>
+                <excludes>
+                  <exclude>**/bpms/**</exclude>
+                  <exclude>**/brms/**</exclude>
+                </excludes>
               </resource>
               <resource>
                 <directory>${project.basedir}/../shared-kie-docs/src/main/asciidoc</directory>
@@ -86,27 +90,24 @@
                 <backend>html5</backend>
                 <sourceHighlighter>highlightjs</sourceHighlighter>
                 <outputDirectory>${project.build.directory}/generated-docs/html_single</outputDirectory>
+                <imagesDir>images</imagesDir>
               </configuration>
             </execution>
-            <!--
-              TODO Enable PDF output when https://github.com/asciidoctor/asciidoctor-maven-plugin/issues/291 is fixed.
-              The images are recognized, so it's better than with the maven-resources-plugin hack,
-               but there's still a problem for the shared-kie-docs images (not the book specific images).
-            -->
-            <!--<execution>-->
-              <!--<id>generate-pdf</id>-->
-              <!--<phase>process-sources</phase>-->
-              <!--<goals>-->
-                <!--<goal>process-asciidoc</goal>-->
-              <!--</goals>-->
-              <!--<configuration>-->
-                <!--&lt;!&ndash; Needs to be duplicated to avoid rendering each adoc separately &ndash;&gt;-->
-                <!--<sourceDocumentName>index.adoc</sourceDocumentName>-->
-                <!--<backend>pdf</backend>-->
-                <!--<sourceHighlighter>coderay</sourceHighlighter>&lt;!&ndash; highlightjs does not work in PDF &ndash;&gt;-->
-                <!--<outputDirectory>${project.build.directory}/generated-docs/pdf</outputDirectory>-->
-              <!--</configuration>-->
-            <!--</execution>-->
+            <execution>
+              <id>generate-pdf</id>
+              <phase>process-sources</phase>
+              <goals>
+                <goal>process-asciidoc</goal>
+              </goals>
+              <configuration>
+                <sourceDirectory>src/main/asciidoc/community</sourceDirectory>
+                <sourceDocumentName>index.adoc</sourceDocumentName>
+                <backend>pdf</backend>
+                <sourceHighlighter>coderay</sourceHighlighter>&lt;!&ndash; highlightjs does not work in PDF &ndash;&gt;
+                <outputDirectory>${project.build.directory}/generated-docs/pdf</outputDirectory>
+                <imagesDir>${project.basedir}/../shared-kie-docs/src/main/asciidoc/images</imagesDir>
+              </configuration>
+            </execution>
           </executions>
         </plugin>
         <plugin>
