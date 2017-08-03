@@ -1,5 +1,6 @@
 [[_optaplanner.domainEditor]]
 = Domain Editor
+:imagesdir: ../..
 
 Planner leverages <<_wb.datamodeller,Data modeller>> to create domain model for constraint satisfaction problems.
 
@@ -18,6 +19,9 @@ The overview of the Planner dock capabilities is shown in the following division
 
 * None
 * https://docs.jboss.org/optaplanner/release/latest/optaplanner-docs/html_single/index.html#planningEntity[Planning Entity]
+
+ optaplanner-wb-es-docs/src/main/asciidoc/Workbench/AuthoringPlanningAssets/PlanningEntityDifficultyComparator-section.adoc
+ 
 ** <<_optaplanner.planningEntityDifficultyComparator,Use difficulty comparator for sorting planning entities>>
 * https://docs.jboss.org/optaplanner/release/latest/optaplanner-docs/html_single/index.html#solutionClass[Planning Solution]
 ** https://docs.jboss.org/optaplanner/release/latest/optaplanner-docs/html_single/index.html#scoreOfASolution[Solution Score Type]
